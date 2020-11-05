@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Article;
+use App\Service\SwearCleaner;
 
 class firstAppController extends AbstractController
 {
@@ -31,6 +32,10 @@ class firstAppController extends AbstractController
         $articleRepository = $this->getDoctrine()->getRepository(Article::class);
         $article = $articleRepository->find($id);
         $articleDate = $article->getDateCreation()->format("d/m/Y");
+
+        $swearCleaner = new SwearCleaner();
+
+        $article = $swearCleaner->cleanSwear($article);
 
         return $this->render('firstApp/single.html.twig', [
             'article' => $article,
