@@ -1,0 +1,14 @@
+{% extends "base.html.twig" %}
+{% block title %} Accueil {% endblock %}
+{% block main %}
+<h2>Coucou {{ index }}</h2>
+{% for i in 0..5 %}
+            <div class="card my-3">
+            <div class="card-body">
+                <h5 class="card-title">{{i}}</h5>
+                <p class="card-text">Coucou je suis l'article n°{{i}} <p>
+                <a href="{{ path('single',{'id':i}) }}" class="btn btn-secondary">Voir</a>
+            </div>
+        </div>
+{% endfor %}
+{% endblock %}

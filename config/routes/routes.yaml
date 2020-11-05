@@ -1,0 +1,11 @@
+# firstApp_index:
+#     path: /firstApp/index
+#     controller: App\Controller\FirstAppController::index
+
+firstApp_single:
+  path: /firstApp/article/{id}
+  controller: App\Controller\firstAppController::single
+  defaults:
+    id: 1
+  requirements:
+    id: '\d+' 
