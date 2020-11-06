@@ -26,7 +26,7 @@ class firstAppController extends AbstractController
     /**
      * @Route("/article/{id}", name="single",requirements={"id"="\d+"})
      */
-    // int $id = 1
+
     public function single(int $id): Response
     {
         $articleRepository = $this->getDoctrine()->getRepository(Article::class);
@@ -49,6 +49,21 @@ class firstAppController extends AbstractController
     public function add(): Response
     {
         return $this->render('firstApp/adminAdd.html.twig');
+    }
+
+    /**
+     * @Route("/seConnecter", name="seConnecter")
+     */
+    public function seConnecter(): Response
+    {
+        return $this->render('firstApp/connection.html.twig');
+    }
+        /**
+     * @Route("/createAccount", name="createAccount")
+     */
+    public function createAccount(): Response
+    {
+        return $this->render('firstApp/addAccount.html.twig');
     }
 
 }
