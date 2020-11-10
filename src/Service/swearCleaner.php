@@ -3,7 +3,7 @@ namespace App\Service;
 
 use App\Entity\Article;
 
-class swearCleaner
+class SwearCleaner
 {
     const SWEAR = ["connard", "pute", "salop", "salope"];
 
@@ -28,9 +28,7 @@ class swearCleaner
             
             array_push($newMsg, $mot);
         }
-        dump($newMsg);
         $article->setContenu(implode(" ", $newMsg));
-        dump($article->getContenu());
         return $article;
     }
 }

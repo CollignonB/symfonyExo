@@ -6,7 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Article;
-use App\Service\SwearCleaner;
+use App\Service\swearCleaner;
 
 class firstAppController extends AbstractController
 {
@@ -33,9 +33,9 @@ class firstAppController extends AbstractController
         $article = $articleRepository->find($id);
         $articleDate = $article->getDateCreation()->format("d/m/Y");
 
-        $swearCleaner = new SwearCleaner();
+        // $swearCleaner = new SwearCleaner();
 
-        $article = $swearCleaner->cleanSwear($article);
+        // $article = $swearCleaner->cleanSwear($article);
 
         return $this->render('firstApp/single.html.twig', [
             'article' => $article,
@@ -51,13 +51,6 @@ class firstAppController extends AbstractController
         return $this->render('firstApp/adminAdd.html.twig');
     }
 
-    /**
-     * @Route("/seConnecter", name="seConnecter")
-     */
-    public function seConnecter(): Response
-    {
-        return $this->render('firstApp/connection.html.twig');
-    }
         /**
      * @Route("/createAccount", name="createAccount")
      */
